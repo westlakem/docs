@@ -19,10 +19,10 @@ The NativeScript CLI is built on Node.js, and as such you need to have Node.js i
 You can check whether you have Node.js set up by opening a terminal or command prompt and executing `node --version`. If you get an error, head to  <https://nodejs.org/> and download and install the latest “LTS” (long-term support) distribution and restart your terminal or command prompt.
 
 > **TIP**:
-> * If you’re on macOS and use [Homebrew](http://brew.sh/), you can alternatively install the Node.js LTS release by running `brew update` (to download the latest updates) and then `brew install node@6` in your terminal.
+> * If you’re on macOS and use [Homebrew](http://brew.sh/), you can alternatively install the Node.js LTS release by running `brew update` (to download the latest updates) and then `brew install node@8` in your terminal.
 > * The NativeScript CLI supports a wide variety of Node.js versions, so if you already have Node.js installed you should be good to go. If, by chance, you’re running an unsupported version, the `tns doctor` command will run momentarily and flag the problem so you can upgrade.
 
-> **NOTE**: Mac users, bear in mind that you should add the path to `node@6/bin` manually by running `echo 'export PATH="/usr/local/opt/node@6/bin:$PATH"' >> ~/.bash_profile` and restart your terminal.
+> **NOTE**: Mac users, bear in mind that you should add the path to `node@8/bin` manually by running `echo 'export PATH="/usr/local/opt/node@8/bin:$PATH"' >> ~/.bash_profile` and restart your terminal.
 
 ## Step 2: Install the NativeScript CLI
 
@@ -100,11 +100,45 @@ You must also have the following two environment variables setup for Android dev
 
 ### macOS
 
+#### Prerequisites
+
+* macOS Mavericks or later
+* Latest [Xcode](https://developer.apple.com/xcode/)
+
 If you’re on a Mac, copy and paste the script below into your terminal and press Enter:
 
 <pre class="add-copy-button"><code class="language-terminal">ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"</code></pre>
 
 The macOS script needs administrative access to run some commands using `sudo`; therefore, you may need to provide your password several times during execution. The macOS script also may take some time to complete, as it’s installing the dependencies for both iOS and Android development. When the script finishes, close and restart your terminal.
+
+After the installation your system setup will have:
+
+* The latest stable official release of Node.js (LTS) [8.x](https://nodejs.org/dist/latest-v8.x/). Support for Node.js 9.x is not verified. This CLI might not install or run properly. We recommend using Node.js (LTS) 8.x.  
+* [Homebrew](https://brew.sh/) to simplify the installation of dependencies
+* For iOS development
+    * Latest Xcode
+    * Command-line tools for Xcode
+    * xcodeproj ruby gem
+    * CocoaPods
+    * (Optional) xcproj command line tool
+* For Android development
+    * JDK 8
+    * Android SDK 25 or a later stable official release
+    * Android Support Repository
+    * (Optional) Google Repository
+    * Android SDK Build-tools 25.0.2 or a later stable official release
+
+You must also have the following two environment variables setup for Android development:
+
+* JAVA_HOME
+* ANDROID_HOME
+
+> **NOTE** To check if JAVA_HOME and ANDROID_HOME are indeed initialized you can:
+- close any Terminal windows you have opened, 
+- open a new Terminal
+- write `echo $JAVA_HOME` and make sure a valid path is returned
+- write `echo $ANDROID_HOME` and make sure a valid path is returned
+
 
 ## Step 4: Verify the setup
 

@@ -11,34 +11,6 @@ previous_url: /setup/ns-cli-setup/ns-setup-os-x
 
 This page contains a list of all system requirements needed to build and run NativeScript apps on macOS, as well as a guided walkthrough for getting these requirements in place. On macOS systems, you can use the NativeScript CLI to develop Android and iOS apps.
 
-* [System Requirements](#system-requirements)
-* [Advanced Setup Steps](#advanced-setup-steps)
-
-## System Requirements
-
-* macOS Mavericks or later
-* The latest stable official release of Node.js (LTS) [8.x](https://nodejs.org/dist/latest-v8.x/). Support for Node.js 9.x is not verified. This CLI might not install or run properly. We recommend using Node.js (LTS) 8.x.
-* (Optional) [Homebrew](https://brew.sh/) to simplify the installation of dependencies
-* For iOS development
-    * Latest Xcode
-    * Command-line tools for Xcode
-    * xcodeproj ruby gem
-    * CocoaPods
-    * (Optional) xcproj command line tool
-* For Android development
-    * JDK 8
-    * Android SDK 22 or a later stable official release
-    * Android Support Repository
-    * (Optional) Google Repository
-    * Android SDK Build-tools 25.0.2 or a later stable official release
-
-You must also have the following two environment variables setup for Android development:
-
-* JAVA_HOME
-* ANDROID_HOME
-
-## Advanced Setup Steps
-
 Complete the following steps to setup NativeScript on your macOS development machine:
 
 1. Install [Homebrew](http://brew.sh) to simplify the installation process.
@@ -46,7 +18,7 @@ Complete the following steps to setup NativeScript on your macOS development mac
     <pre class="add-copy-button"><code class="language-terminal">ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     </code></pre>
 
-1. Install the latest Node.js (LTS) [8.x](https://nodejs.org/dist/latest-v8.x/).
+1. Install the latest [Node.js LTS](https://nodejs.org/en/)
 
     <pre class="add-copy-button"><code class="language-terminal">brew update
     </code></pre>
@@ -55,7 +27,7 @@ Complete the following steps to setup NativeScript on your macOS development mac
     </code></pre>
 
 1. Install the dependencies for iOS development.
-    1. Run the App Store and download and install Xcode 5 or later.
+    1. Run the App Store and download and install Xcode 8 or later.
     1. Go to [Downloads for Apple Developers](https://developer.apple.com/downloads/index.action), log in and download and install the **Command Line Tools for Xcode** for your version of macOS and Xcode.
     1. Install the [xcodeproj ruby gem](https://rubygems.org/gems/xcodeproj/versions/0.28.2) with the following command.
 
@@ -96,20 +68,12 @@ Complete the following steps to setup NativeScript on your macOS development mac
             <blockquote><b>NOTE</b>: This is the directory that contains the <code>tools</code> and <code>platform-tools</code> directories.</blockquote>
             <blockquote><b>NOTE</b>: In order to persist these variables after your terminal session is closed, they have to be persisted in your shell profile file (e.g. <code>~/.bash_profile</code> if you are using Bash, <code>~/.zprofile if you are using Zsh)</blockquote>            
 
-        1. In addition, install all packages for the Android SDK Platform 25, Android SDK Build-Tools 25.0.2 or later, Android Support Repository, Google Repository and any other SDKs that you may need. You can alternatively use the following command, which will install all required packages.
+        1. Install all packages for the Android SDK Platform 25, Android SDK Build-Tools 25.0.2 or later, Android Support Repository, Google Repository and any other SDKs that you may need. You can alternatively use the following command, which will install all required packages.
 
            <pre class="add-copy-button"><code class="language-terminal">$ANDROID_HOME/tools/bin/sdkmanager "tools" "platform-tools" "platforms;android-25" "build-tools;25.0.2" "extras;android;m2repository" "extras;google;m2repository"
            </code></pre>
 
-1. Setup Android Emulators (AVD) by following the article [here]({%slug android-emulators%})
-
-1. Install the NativeScript CLI.
-    1. Run the following command.
-
-        <pre class="add-copy-button"><code class="language-terminal">npm i -g nativescript
-        </code></pre>
-
-    1. Restart the command prompt.
+1. Setup Android Virtual Devices (AVD) by following the [Android Studio official documentation](https://developer.android.com/studio/run/managing-avds.html).
 
 1. To check if your system is configured properly, run the following command.
 
