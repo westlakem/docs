@@ -54,10 +54,6 @@ When you build with NativeScript you’re building truly native iOS and Android 
 
 > **TIP**:
 > * Setting up your machine for native development can be tricky, especially if you’re new to mobile development. If you get stuck, or if you have questions while going through these instructions, the [NativeScript community forum](https://discourse.nativescript.org/c/getting-started) is a great place to get help.
-> * If you’re not comfortable with a script automatically installing dependencies on your development machine, or if you’re on Linux, refer to one of the advanced setup guides below for details on manually installing NativeScript’s iOS and Android dependencies.
->     * [Advanced setup: Windows](/start/ns-setup-win)
->     * [Advanced setup: macOS](/start/ns-setup-os-x)
->     * [Advanced setup: Linux](/start/ns-setup-linux)
 
 ### Windows
 
@@ -71,6 +67,8 @@ If you’re on Windows, copy and paste the script below into your command prompt
 Please be sure that you run this command in cmd as an administator (Windows key > type "cmd" > right click > Run as Administrator).
 
 <pre class="add-copy-button"><code class="language-terminal">@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://www.nativescript.org/setup/win'))"</code></pre>
+
+> **NOTE** If you’re not comfortable with a script automatically installing dependencies on your development machine, refer to the [Windows advanced setup guides](/start/ns-setup-win) for details on manually installing NativeScript’s iOS and Android dependencies.
 
 During installation you may need to accept a User Account Control prompt to grant the script administrative privileges. Also, be aware that the script downloads and installs some big dependencies—so it’s common for the script to take a while to complete. When the script finishes, close and reopen your command prompt.
 
@@ -105,9 +103,11 @@ You must also have the following two environment variables setup for Android dev
 * macOS Mavericks or later
 * Latest [Xcode](https://developer.apple.com/xcode/)
 
-If you’re on a Mac, copy and paste the script below into your terminal and press Enter:
+Copy and paste the script below into your terminal and press Enter:
 
 <pre class="add-copy-button"><code class="language-terminal">ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"</code></pre>
+
+> **NOTE** If you’re not comfortable with a script automatically installing dependencies on your development machine, refer to the [macOS advanced setup guides](/start/ns-setup-os-x) for details on manually installing NativeScript’s iOS and Android dependencies.
 
 The macOS script needs administrative access to run some commands using `sudo`; therefore, you may need to provide your password several times during execution. The macOS script also may take some time to complete, as it’s installing the dependencies for both iOS and Android development. When the script finishes, close and restart your terminal.
 
@@ -139,6 +139,11 @@ You must also have the following two environment variables setup for Android dev
 - write `echo $JAVA_HOME` and make sure a valid path is returned
 - write `echo $ANDROID_HOME` and make sure a valid path is returned
 
+### Linux
+
+To install on Linux, refer to the [Linux advanced setup guides](/start/ns-setup-linux) for details on manually installing NativeScript’s iOS and Android dependencies.
+
+> **NOTE**: On Windows and Linux systems you can only use the NativeScript CLI to develop Android apps. This is because the NativeScript CLI uses Xcode to build iOS apps, which is only available on macOS. If you’re interested in building iOS apps on Windows or Linux, you should download [NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick).
 
 ## Step 4: Verify the setup
 
