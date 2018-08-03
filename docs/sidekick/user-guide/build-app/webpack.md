@@ -12,7 +12,7 @@ Webpack is a module bundler for modern JavaScript applications. When webpack pro
 
 Webpack is also highly configurable and extensible - you can customize every step of the bundling process and add support for all sorts of asset generation and manipulation procedures, for example - code minification.
 
-## How to Enable Webpack
+## How to Enable Webpack - itemtype~Movie
 
 Since every project is unique and can have quite complex requirements for bundling we tried to make webpack configuration as simple as possible. After installation, the plugin will configure the bundling dependencies, and add a basic configuration that should work for most projects. Developers can (and should) extend that to fit their specific project needs. 
 

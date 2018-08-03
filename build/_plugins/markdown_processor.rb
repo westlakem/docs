@@ -24,7 +24,14 @@ module Jekyll
 
             page.output
         end
-
+        if new_text.include? "itemtype"
+            puts "------------------------itemtype 32126543-----------------------"
+            puts new_text
+            puts new_text.split('-')[0]
+            new_text = new_text.split('-')[0]
+            puts "-----------------------------------------------"
+            puts new_text
+        end
         new_text
       end
     end
@@ -40,7 +47,15 @@ module Jekyll
                 if href.start_with? '/'
                     a['href'] = context[:baseurl] +  href
                 end
-
+                puts "-------------------URLhrefcontext-------------------------";
+                puts "--------------------------------------------";
+                puts "--------------------------------------------";
+                puts "--------------------------------------------";
+                puts "testhrefcontext"
+                puts href
+                puts "--------------------------------------------";
+                puts "--------------------------------------------";
+                puts "--------------------------------------------";
                 # Transform article .md links to .html
                 if /\.md(#.*?)?$/.match(href)
                     # Leave external(absolute) links alone
@@ -89,7 +104,14 @@ module Jekyll
 
             doc.css('h2').each do |node|
                 text = node.text
-
+               
+                if text.include? "itemtype"
+                    puts "------------------------itemtype 3212-----------------------"
+                    puts text
+                    text = text.split('-')[0]
+                    puts "-----------------------------------------------"
+                    puts text
+                end
                 next unless text =~ /^Configuration|Events|Properties|Methods|Class Methods|Fields$/
 
                 prefix = text.downcase.gsub(' ', '-')
@@ -128,9 +150,41 @@ module Jekyll
             doc.css('h1, h2, h3').each do |node|
 
                 id = node['id']
-
+                attrb = ''
+                attrval = ''
                 unless id
-                    id = node.text.downcase
+                    id=""
+                    newid = node.text.downcase
+                    puts "-------------------URLidsplit-------------------------";
+                    puts "--------------------------------------------";
+                    puts "--------------------------------------------";
+                    puts "--------------------------------------------";
+                    puts "testid"
+                    if newid.include? "itemtype"
+                        # puts "test include"
+                        vals = newid.split('-')
+                        # puts "First"
+                        # puts vals[0]
+                        # puts "Second"
+                        # puts vals[1]
+                        id = vals[0]
+                        itemtype = vals[1]
+                        itemtype.gsub!(' ', '')
+                        # puts "testtest puts out"
+                        # puts itemtype.split('~')[0]
+                        # puts itemtype.split('~')[1]
+                        attrb = itemtype.split('~')[0]
+                        attrval = itemtype.split('~')[1]
+                        puts 'test include attr2'
+                        puts attrb
+                        puts attrval
+                    else
+                        id = newid
+                    end
+                    
+                    puts "--------------------------------------------";
+                    puts "--------------------------------------------";
+                    puts "--------------------------------------------";
                     id.gsub!(@@punctuation_regexp, '') # remove punctuation
                     id.gsub!(' ', '-') # replace spaces with dash
                 end
@@ -138,7 +192,11 @@ module Jekyll
                 node['id'] = id
 
                 a = Nokogiri::XML::Node.new('a', doc)
+                
                 a['href'] = "##{id}"
+                unless attrb.empty?
+                    a[attrb] = "http://schema.org/#{attrval}"
+                end
                 a.children = node.children
                 node.add_child a
             end

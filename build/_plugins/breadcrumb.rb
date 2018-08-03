@@ -36,7 +36,7 @@ class BreadCrumbTag < Liquid::Tag
                 else
                     url = path
                 end
-
+               
                 html += "<li class=\"link\"><a href=\"#{site.baseurl}/#{url}\">#{text}</a></li>"
             end
 
