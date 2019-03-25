@@ -54,7 +54,7 @@ To create a web-only component, the component structure is the same as usual:
     └── my.component.ts
 ```
 
-You just need to exclude the component from **NativeScript's AOT TypeScript Config** (**tsconfig.aot.json**), for example:
+You just need to exclude the component from **NativeScript's AOT TypeScript Config** (**tsconfig.spec.json**), for example:
 
 ```JSON
 {
